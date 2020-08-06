@@ -7,8 +7,15 @@ using UtilitiesLibrary;
 
 namespace DataAnalysisLibrary
 {
-    public class Calculation
+    public class Calculation : ICalculation
     {
+        ILogger _logger;
+
+        public Calculation(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public void Histogram(int dataSet)
         {
             Logger logger = new Logger();

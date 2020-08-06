@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IInstrument.cs" />
     <Compile Include="Instrument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

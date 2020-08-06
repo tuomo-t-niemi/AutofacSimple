@@ -10,18 +10,26 @@ using UtilitiesLibrary;
 
 namespace BusinessLogicLibrary
 {
-    public class BusenessLogic
+    public class BusenessLogic : IBusenessLogic
     {
+        ILogger _logger;
+        IInstrument _instrument;
+        ICalculation _calculation;
+
+        public BusenessLogic(ILogger logger, IInstrument instrument, ICalculation calculation)
+        {
+            _logger = logger;
+            _instrument = instrument;
+            _calculation = calculation;
+        }
+
         public void ProcessData()
         {
-            Logger logger = new Logger();
-            logger.Log("Starting new measurement ...");
-            Instrument instrument = new Instrument();
-            int dataSet = instrument.Measure();
-            logger.Log("Measurement acquired. Starting analysis ...");
-            Calculation calculation = new Calculation();
-            calculation.Histogram(dataSet);
-            logger.Log("Analysis completed.");
+            _logger.Log("Starting new measurement ...");
+            int dataSet = _instrument.Measure();
+            _logger.Log("Measurement acquired. Starting analysis ...");
+            _calculation.Histogram(dataSet);
+            _logger.Log("Analysis completed.");
         }
     }
 }

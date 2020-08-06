@@ -7,12 +7,18 @@ using UtilitiesLibrary;
 
 namespace DataAcquisitionLibrary
 {
-    public class Instrument
+    public class Instrument : IInstrument
     {
+        ILogger _logger;
+
+        public Instrument(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public int Measure()
         {
-            Logger logger = new Logger();
-            logger.Log("Measuring data");
+            _logger.Log("Measuring data");
             int dataSet = (new Random()).Next();
             Console.WriteLine($"Measured dataset: {dataSet}");
             return dataSet;

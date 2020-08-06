@@ -1,4 +1,5 @@
-﻿using BusinessLogicLibrary;
+﻿using Autofac;
+using BusinessLogicLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,14 @@ namespace AutofacSimple
     {
         static void Main(string[] args)
         {
-            BusenessLogic busenessLogic = new BusenessLogic();
-            busenessLogic.ProcessData();
+            var container = ContainerConfig.Configure();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<IApplication>();
+                app.Run();
+            }
+
             Console.ReadLine();
         }
     }
