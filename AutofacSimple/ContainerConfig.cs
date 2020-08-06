@@ -17,7 +17,7 @@ namespace AutofacSimple
             var builder = new ContainerBuilder();
 
             builder.RegisterType<Application>().As<IApplication>();
-            builder.RegisterType<BusenessLogic>().As<IBusenessLogic>();
+            builder.RegisterType<BusinessLogic>().As<IBusinessLogic>();
 
             builder.RegisterAssemblyTypes(Assembly.Load(nameof(DataAcquisitionLibrary)))
                 .As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));

@@ -10,13 +10,13 @@ using UtilitiesLibrary;
 
 namespace BusinessLogicLibrary
 {
-    public class BusenessLogic : IBusenessLogic
+    public class BusinessLogic : IBusinessLogic
     {
         ILogger _logger;
         IInstrument _instrument;
         ICalculation _calculation;
 
-        public BusenessLogic(ILogger logger, IInstrument instrument, ICalculation calculation)
+        public BusinessLogic(ILogger logger, IInstrument instrument, ICalculation calculation)
         {
             _logger = logger;
             _instrument = instrument;

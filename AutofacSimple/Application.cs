@@ -9,9 +9,9 @@ namespace AutofacSimple
 {
     public class Application : IApplication
     {
-        IBusenessLogic _busenessLogic;
+        IBusinessLogic _busenessLogic;
 
-        public Application(IBusenessLogic busenessLogic)
+        public Application(IBusinessLogic busenessLogic)
         {
             _busenessLogic = busenessLogic;
         }

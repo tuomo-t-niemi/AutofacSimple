@@ -1,6 +1,6 @@
 ﻿namespace BusinessLogicLibrary
 {
-    public interface IBusenessLogic
+    public interface IBusinessLogic
     {
         void ProcessData();
     }
